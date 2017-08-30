@@ -13,11 +13,14 @@ populacao::populacao(int tamanho_populacao, bool gera_individuos)
 
 	if (gera_individuos)
 	{
+		const float melhor_aptidao = 0;
+
 		for (int i = 0; i < tamanho_; i++)
 		{
 			individuo novo_individuo;
 			novo_individuo.gera_individuo();
 			armazena_individuo(i, novo_individuo);
+			if (novo_individuo.get_aptidao() > melhor_aptidao) { posicao_melhor_ = i; }
 		}
 	}
 }

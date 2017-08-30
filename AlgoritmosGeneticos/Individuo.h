@@ -4,7 +4,8 @@
 class individuo
 {
 private:
-	float individuo_;
+	float x_;
+	float y_;
 	float aptidao_;
 
 public:
@@ -12,9 +13,12 @@ public:
 	~individuo();
 
 	float get_aptidao() const;
-	float get_individuo() const;
-	void set_individuo(float individuo);
-	void set_aptidao(float aptidao);
+	float get_x() const;
+	float get_y() const;
+	void set_x(float x);
+	void set_y(float y);
+	void set_individuo(float x, float y);
+	void set_aptidao(float x, float y);
 	void gera_individuo();
 };
 

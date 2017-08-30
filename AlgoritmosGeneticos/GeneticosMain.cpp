@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 	for (int i = 0; i < max_pop; i++)
 	{
 		cout << "Numero da iteracao: " << i << endl;
-		cout << "Nova Populacao: " << p->get_individuo(i).get_individuo() << endl;
+		cout << "Nova Populacao: (" << p->get_individuo(i).get_x() << ", " << p->get_individuo(i).get_y() << endl;
 		cout << "Nova Aptidao: " << p->get_individuo(i).get_aptidao() << endl << endl;
 		aptidao_media += p->get_individuo(i).get_aptidao();
 	}

@@ -15,6 +15,8 @@ public:
 
 	int selecao_roleta() const;
 	void evolucao();
+	void cruzamento();
+	void mutacao();
 	void set_numero_geracoes(int numero_geracoes);
 	void set_populacao(populacao* pop);
 	int get_numero_geracoes() const { return numero_geracoes_; }
