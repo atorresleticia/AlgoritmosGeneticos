@@ -1,29 +1,24 @@
-// AlgoritmosGeneticos.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include "GeneticoConfig.h";
-#include "Populacao.h";
-#include "Individuos.h";
 #include <iostream>
 #include <ctime>
 
 using namespace std;
 
-#define MAX_POP 10
-#define MAX_GEN 1000
-
-int main()
+int main(int argc, char* argv[])
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 
-	populacao* p = new populacao(MAX_POP, true);
-	genetico_config* g = new genetico_config(MAX_GEN, p);
+	const int max_pop = atoi(argv[1]);
+	const int max_gen = atoi(argv[2]);
+
+	populacao* p = new populacao(max_pop, true);
+	genetico_config* g = new genetico_config(max_gen, p);
 	g->evolucao();
 
 	float aptidao_media = 0;
 
-	for (int i = 0; i < MAX_POP; i++)
+	for (int i = 0; i < max_pop; i++)
 	{
 		cout << "Numero da iteracao: " << i << endl;
 		cout << "Nova Populacao: " << p->get_individuo(i).get_individuo() << endl;
@@ -31,6 +26,6 @@ int main()
 		aptidao_media += p->get_individuo(i).get_aptidao();
 	}
 
-	cout << "Aptidao Media: " << aptidao_media / MAX_POP << endl;
+	cout << "Aptidao Media: " << aptidao_media / max_pop << endl;
 }
 

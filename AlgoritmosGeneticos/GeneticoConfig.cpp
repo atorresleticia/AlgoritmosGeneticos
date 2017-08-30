@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "GeneticoConfig.h"
 #include <cstdlib>
-#include <cstdlib>
 #include <cmath>
 #include <iostream>
 
@@ -19,39 +18,41 @@ genetico_config::~genetico_config()
 {
 }
 
-int genetico_config::selecao_roleta(populacao* pop, int soma_aptidao) 
+int genetico_config::selecao_roleta() const
 {
-	float p = (rand()) / (static_cast<float>(RAND_MAX / soma_aptidao));
+	float S = 0;
+
+	for (int i = 0; i < pop_->get_tamanho_populacao(); i++)
+	{
+		S += pop_->get_individuo(i).get_aptidao();
+	}
+
+	float p = (rand()) / (static_cast<float>(RAND_MAX / S));
 	float t_parcial = 0;
 	int i = 0;
 
-	while (i < pop->get_tamanho_populacao() && t_parcial < p)
+	while (i < pop_->get_tamanho_populacao() && t_parcial < p)
 	{
-		t_parcial += pop->get_individuo(i).get_aptidao();
+		t_parcial += pop_->get_individuo(i).get_aptidao();
 		i++;
 	}
 
 	return i - 1;
 }
 
-void genetico_config::evolucao() const
+void genetico_config::evolucao()
 {	
 	populacao* nova_pop = new populacao(pop_->get_tamanho_populacao(), false);
 
 	float S = 0;
 
-	for(int i = 0; i < pop_->get_tamanho_populacao(); i++)
-	{
-		S += pop_->get_individuo(i).get_aptidao();
-	}
-
 	for(int i = 0; i < numero_geracoes_; i++)
 	{
 		for(int j = 0; j < pop_->get_tamanho_populacao(); j++)
 		{
-			int index = selecao_roleta(pop_, S);
+			int index = selecao_roleta();
 
-			individuos individuo_selecionado = pop_->get_individuo(index);
+			individuo individuo_selecionado = pop_->get_individuo(index);
 
 			individuo_selecionado.set_individuo(individuo_selecionado
 			.get_individuo() + (rand() % 100000000 / 1e8) - 0.5);

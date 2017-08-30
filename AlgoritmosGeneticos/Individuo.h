@@ -1,15 +1,16 @@
-#ifndef INDIVIDUOS_H
-#define INDIVIDUOS_H
+#ifndef INDIVIDUO_H
+#define INDIVIDUO_H
 
-class individuos
+class individuo
 {
 private:
 	float individuo_;
 	float aptidao_;
 
 public:
-	individuos();
-	~individuos();
+	individuo();
+	~individuo();
+
 	float get_aptidao() const;
 	float get_individuo() const;
 	void set_individuo(float individuo);

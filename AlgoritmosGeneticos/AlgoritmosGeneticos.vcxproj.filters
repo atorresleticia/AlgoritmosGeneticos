@@ -30,7 +30,7 @@
     <ClInclude Include="Populacao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Individuos.h">
+    <ClInclude Include="Individuo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClCompile Include="Populacao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Individuos.cpp">
+    <ClCompile Include="GeneticosMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneticosMain.cpp">
+    <ClCompile Include="Individuo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
