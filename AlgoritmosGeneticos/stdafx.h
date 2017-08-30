@@ -3,13 +3,19 @@
 // are changed infrequently
 //
 
-#pragma once
+#ifndef STDAFX_H
+#define STDAFX_H 
 
 #include "targetver.h"
 
 #include <stdio.h>
+#include <iostream>
 #include <tchar.h>
+#include <cstdlib>
+#include <cmath>
 
+#ifndef M_PI
+	#define M_PI 3.14159265358979323846
+#endif
 
-
-// TODO: reference additional headers your program requires here
+#endif

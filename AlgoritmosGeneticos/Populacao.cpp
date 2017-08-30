@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Populacao.h"
-#include <iostream>
 
 populacao::populacao(): x_(nullptr), tamanho_(0)
 {

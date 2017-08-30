@@ -1,11 +1,5 @@
 #include "stdafx.h"
 #include "Individuo.h"
-#include <cstdlib>
-#include <cmath>
-
-#ifndef M_PI
-	#define M_PI 3.14159265358979323846
-#endif
 
 individuo::individuo(): individuo_(0), aptidao_(0)
 {

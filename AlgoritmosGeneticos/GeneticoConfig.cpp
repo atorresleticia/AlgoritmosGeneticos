@@ -1,12 +1,5 @@
 #include "stdafx.h"
 #include "GeneticoConfig.h"
-#include <cstdlib>
-#include <cmath>
-#include <iostream>
-
-#ifndef M_PI
-	#define M_PI 3.14159265358979323846
-#endif
 
 genetico_config::genetico_config(int numero_geracoes, populacao* pop)
 {
