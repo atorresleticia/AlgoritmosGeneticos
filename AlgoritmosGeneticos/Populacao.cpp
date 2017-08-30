@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Populacao.h"
+#include <ostream>
+#include <iostream>
 
 populacao::populacao(): x_(nullptr), tamanho_(0)
 {
@@ -18,6 +20,10 @@ populacao::populacao(int tamanho_populacao, bool gera_individuos)
 			armazena_individuo(i, novo_individuo);
 		}
 	}
+}
+
+populacao::~populacao()
+{
 }
 
 void populacao::armazena_individuo(int i, individuos x_i) const

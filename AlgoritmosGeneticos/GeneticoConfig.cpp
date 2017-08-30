@@ -3,15 +3,20 @@
 #include <cstdlib>
 #include <cstdlib>
 #include <cmath>
+#include <iostream>
 
 #ifndef M_PI
-#define M_PI 3.14159265358979323846
+	#define M_PI 3.14159265358979323846
 #endif
 
 genetico_config::genetico_config(int numero_geracoes, populacao* pop)
 {
 	numero_geracoes_ = numero_geracoes;
 	pop_ = pop;
+}
+
+genetico_config::~genetico_config()
+{
 }
 
 int genetico_config::selecao_roleta(populacao* pop, int soma_aptidao) 

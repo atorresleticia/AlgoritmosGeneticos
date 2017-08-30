@@ -10,8 +10,8 @@ private:
 	populacao* pop_;
 
 public:
-
 	genetico_config(int numero_geracoes, populacao* pop);
+	~genetico_config();
 	static int selecao_roleta(populacao* pop, int soma_aptidao);
 	void evolucao() const;
 	void set_numero_geracoes(int numero_geracoes);

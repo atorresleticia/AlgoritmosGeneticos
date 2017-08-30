@@ -3,12 +3,17 @@
 #include <cstdlib>
 #include <cmath>
 #include <ctime>
+#include <iostream>
 
 #ifndef M_PI
 	#define M_PI 3.14159265358979323846
 #endif
 
 individuos::individuos(): individuo_(0), aptidao_(0)
+{
+}
+
+individuos::~individuos()
 {
 }
 
