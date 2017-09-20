@@ -1,60 +1,75 @@
 #include "stdafx.h"
 #include "Individuo.h"
 
-#define MIN -5
-#define MAX 5
-
-individuo::individuo(): x_(0), y_(0), aptidao_(0)
-{
-}
-
 individuo::~individuo()
 {
 }
 
-float individuo::get_aptidao() const
+int individuo::get_aptidao() const
 {
 	return aptidao_;
 }
 
-float individuo::get_x() const
+string individuo::get_x() const
 {
-	return x_;
+	return gene_x_;
 }
 
-float individuo::get_y() const
+string individuo::get_y() const
 {
-	return y_;
+	return gene_y_;
 }
 
-void individuo::set_individuo(float x, float y)
+void individuo::set_individuo(string x, string y)
 {
-	x_ = x;
-	y_ = y;
+	gene_x_ = x;
+	gene_y_ = y;
 }
 
-void individuo::set_x(float x)
+void individuo::set_x(string x)
 {
-	x_ = x;
+	gene_x_ = x;
 }
 
-void individuo::set_y(float y)
+void individuo::set_y(string y)
 {
-	y_ = y;
+	gene_y_ = y;
 }
 
-void individuo::set_aptidao(float x, float y)
+/* 
+ * A aptidão é definida pela contagem de 1's no cromossomo do individuo
+ */
+void individuo::set_aptidao(string x, string y)
 {
-	aptidao_ = 0.97 * exp(-(pow((x + 3), 2) + pow((y + 3), 2)) / 5)
-		+ 0.98 * exp(-(pow((x + 3), 2) + pow((y - 3), 2)) / 5)
-		+ 0.99 * exp(-(pow((x - 3), 2) + pow((y + 3), 2)) / 5)
-		+ 1.0 * exp(-(pow((x - 3), 2) + pow((y - 3), 2)) / 5);
+	int count = 0;
+
+	for (int i = 0; i < x.length(); i++) 
+	{
+		if (x[i] == '1')
+		{
+			count++;
+		}
+		if (y[i] == '1')
+		{
+			count++;
+		}
+	}
+
+	aptidao_ = count;
 }
 
-void individuo::gera_individuo()
+/*
+ * A geração dos genes do individuo é feita aplicando um rand para 0 ou 1 em cada alelo
+ */
+void individuo::gera_individuo(int tamanho)
 {
-	x_ = (float(rand()) / float(RAND_MAX)) * (MAX - MIN) + MIN;
-	y_ = (float(rand()) / float(RAND_MAX)) * (MAX - MIN) + MIN;
+	gene_x_ = gene_y_ = "";
 
-	set_aptidao(x_, y_);
+	for (auto i = 0; i < tamanho / 2; i++)
+	{
+		gene_x_.append(to_string(rand() % 2));
+		gene_y_.append(to_string(rand() % 2));
+	}
+
+	set_aptidao(gene_x_, gene_y_);
 }

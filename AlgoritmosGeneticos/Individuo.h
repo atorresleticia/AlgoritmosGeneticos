@@ -1,27 +1,38 @@
 #ifndef INDIVIDUO_H
 #define INDIVIDUO_H
+#include <string>
+
+using namespace std;
 
 class individuo
 {
 private:
-	float x_;
-	float y_;
-	float aptidao_;
+
+	string gene_x_;	//gene1
+	string gene_y_;	//gene2
+	int aptidao_;
 
 public:
-	individuo();
+
+	individuo() = default;
+
+	individuo(const string& gene_x, const string& gene_y, int aptidao)
+		: gene_x_(gene_x),
+		  gene_y_(gene_y),
+		  aptidao_(aptidao)
+	{
+	}
 	~individuo();
 
-	float get_aptidao() const;
-	float get_x() const;
-	float get_y() const;
-	void set_x(float x);
-	void set_y(float y);
-	void set_individuo(float x, float y);
-	void set_aptidao(float x, float y);
-	void gera_individuo();
+	int get_aptidao() const;
+	string get_x() const;
+	string get_y() const;
+	void set_x(string gene_x);
+	void set_y(string gene_y);
+	void set_individuo(string gene_x, string gene_y);
+	void set_aptidao(string gene_x, string gene_y);
+	void gera_individuo(int tamanho);
 };
-
 
 #endif
 
