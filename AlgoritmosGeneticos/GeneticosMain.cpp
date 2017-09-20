@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	const int max_pop = atoi(argv[1]);
 	const int max_gen = atoi(argv[2]);
 
-	populacao* p = new populacao(max_pop, true, true, atoi(argv[3]));
+	populacao* p = new populacao(max_pop, true, false, atoi(argv[3]));
 	genetico_config* g = new genetico_config(max_gen, p);
 	g->evolucao();
 
