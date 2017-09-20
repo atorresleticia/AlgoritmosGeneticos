@@ -1,0 +1,27 @@
+Maior aptidao: 284
+Aptidao Media: 257
+Qualidade da Solucao: 25
+Espaço de busca: 3.72917e-150
+Duracao: 2.85939s
+Maior aptidao: 290
+Aptidao Media: 257
+Qualidade da Solucao: 25
+Espaço de busca: 3.72917e-150
+Duracao: 2.72328s
+Maior aptidao: 277
+Aptidao Media: 254
+Qualidade da Solucao: 0
+Espaco de busca: 3.72917e-150
+Duracao: 2.73832s
+Maior aptidao: 278
+Aptidao Media: 254
+Qualidade da Solucao: 49.6094
+Espaco de busca: 3.72917e-150
+Duracao: 2.75575s
+
+Maior aptidao: 278
+Aptidao Media: 257
+Qualidade da Solucao: 50.1953
+Espaco de busca: 3.72917e-150
+Duracao: 2.75719s
+

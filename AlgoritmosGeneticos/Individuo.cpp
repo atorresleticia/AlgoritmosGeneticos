@@ -42,14 +42,11 @@ void individuo::set_y(string y)
 void individuo::set_aptidao(string x, string y)
 {
 	int count = 0;
+	string c = x.append(y);
 
-	for (int i = 0; i < x.length(); i++) 
+	for (int i = 0; i < c.length(); i++) 
 	{
-		if (x[i] == '1')
-		{
-			count++;
-		}
-		if (y[i] == '1')
+		if (c[i] == '1')
 		{
 			count++;
 		}
@@ -79,7 +76,7 @@ void individuo::set_aptidao(string x)
 void individuo::gera_individuo(int tamanho)
 {
 	gene_x_ = gene_y_ = "";
-	int t = tamanho / 2;
+	const int t = tamanho / 2;
 
 	for (auto i = 0; i < t; i++)
 	{
