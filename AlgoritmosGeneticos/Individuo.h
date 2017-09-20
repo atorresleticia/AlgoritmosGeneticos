@@ -31,6 +31,7 @@ public:
 	void set_y(string gene_y);
 	void set_individuo(string gene_x, string gene_y);
 	void set_aptidao(string gene_x, string gene_y);
+	void set_aptidao(string x);
 	void gera_individuo(int tamanho);
 };
 

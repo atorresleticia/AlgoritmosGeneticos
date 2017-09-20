@@ -58,14 +58,30 @@ void individuo::set_aptidao(string x, string y)
 	aptidao_ = count;
 }
 
+void individuo::set_aptidao(string x)
+{
+	int count = 0;
+
+	for (int i = 0; i < x.length(); i++)
+	{
+		if (x[i] == '1')
+		{
+			count++;
+		}
+	}
+
+	aptidao_ = count;
+}
+
 /*
  * A geração dos genes do individuo é feita aplicando um rand para 0 ou 1 em cada alelo
  */
 void individuo::gera_individuo(int tamanho)
 {
 	gene_x_ = gene_y_ = "";
+	int t = tamanho / 2;
 
-	for (auto i = 0; i < tamanho / 2; i++)
+	for (auto i = 0; i < t; i++)
 	{
 		gene_x_.append(to_string(rand() % 2));
 		gene_y_.append(to_string(rand() % 2));

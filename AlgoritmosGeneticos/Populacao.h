@@ -17,7 +17,7 @@ public:
 	 * gera_individuos = true, quando se quer gerar um individuo
 	 * gera_individuos = false, quando é pra gerar um individuo vazio
 	 */
-	populacao(int tamanho_populacao, bool gera_individuos, bool elitismo);
+	populacao(int tamanho_populacao, bool gera_individuos, bool elitismo, int string_size);
 	populacao();
 	~populacao();
 

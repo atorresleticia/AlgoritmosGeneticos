@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "Populacao.h"
+#include <ctime>
 
 populacao::populacao(): x_(nullptr), tamanho_(0), posicao_melhor_(0), elitismo_(false)
 {
 }
 
-populacao::populacao(int tamanho_populacao, bool gera_individuos, bool elitismo)
+populacao::populacao(int tamanho_populacao, bool gera_individuos, bool elitismo, int string_size)
 {
 	tamanho_ = tamanho_populacao;
 	x_ = new individuo[tamanho_];
@@ -18,7 +19,7 @@ populacao::populacao(int tamanho_populacao, bool gera_individuos, bool elitismo)
 		for (int i = 0; i < tamanho_; i++)
 		{
 			individuo novo_individuo;
-			novo_individuo.gera_individuo(512);
+			novo_individuo.gera_individuo(string_size);
 			armazena_individuo(i, novo_individuo);
 			if (novo_individuo.get_aptidao() > melhor_aptidao && elitismo_)
 			{
