@@ -82,7 +82,7 @@ void genetico_config::evolucao() const
 
 	int espaco_busca = tamanho_pop * nro_geracoes - e_count;
 
-	cout << "Espaço de busca percorrido = " << static_cast<float>(espaco_busca) * 100.0 / static_cast<float>(tamanho_pop * nro_geracoes) << "%" << endl;
+	cout << "Espaco de busca percorrido = " << static_cast<float>(espaco_busca) * 100.0 / static_cast<float>(tamanho_pop * nro_geracoes) << "%" << endl;
 }
 
 void genetico_config::cruzamento(individuo x, individuo y)

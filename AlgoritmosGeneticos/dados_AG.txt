@@ -1,0 +1,202 @@
+It: 0	Aptidao: 261
+
+It: 1	Aptidao: 267
+
+It: 2	Aptidao: 254
+
+It: 3	Aptidao: 268
+
+It: 4	Aptidao: 269
+
+It: 5	Aptidao: 257
+
+It: 6	Aptidao: 240
+
+It: 7	Aptidao: 248
+
+It: 8	Aptidao: 258
+
+It: 9	Aptidao: 260
+
+It: 10	Aptidao: 265
+
+It: 11	Aptidao: 236
+
+It: 12	Aptidao: 239
+
+It: 13	Aptidao: 255
+
+It: 14	Aptidao: 245
+
+It: 15	Aptidao: 270
+
+It: 16	Aptidao: 265
+
+It: 17	Aptidao: 267
+
+It: 18	Aptidao: 249
+
+It: 19	Aptidao: 253
+
+It: 20	Aptidao: 260
+
+It: 21	Aptidao: 227
+
+It: 22	Aptidao: 255
+
+It: 23	Aptidao: 265
+
+It: 24	Aptidao: 263
+
+It: 25	Aptidao: 255
+
+It: 26	Aptidao: 248
+
+It: 27	Aptidao: 257
+
+It: 28	Aptidao: 258
+
+It: 29	Aptidao: 248
+
+It: 30	Aptidao: 273
+
+It: 31	Aptidao: 262
+
+It: 32	Aptidao: 252
+
+It: 33	Aptidao: 242
+
+It: 34	Aptidao: 253
+
+It: 35	Aptidao: 238
+
+It: 36	Aptidao: 260
+
+It: 37	Aptidao: 246
+
+It: 38	Aptidao: 274
+
+It: 39	Aptidao: 253
+
+It: 40	Aptidao: 257
+
+It: 41	Aptidao: 244
+
+It: 42	Aptidao: 270
+
+It: 43	Aptidao: 231
+
+It: 44	Aptidao: 251
+
+It: 45	Aptidao: 247
+
+It: 46	Aptidao: 280
+
+It: 47	Aptidao: 247
+
+It: 48	Aptidao: 241
+
+It: 49	Aptidao: 240
+
+Aptidao Media: 254
+It: 0	Aptidao: 261
+
+It: 1	Aptidao: 254
+
+It: 2	Aptidao: 264
+
+It: 3	Aptidao: 281
+
+It: 4	Aptidao: 257
+
+It: 5	Aptidao: 287
+
+It: 6	Aptidao: 266
+
+It: 7	Aptidao: 257
+
+It: 8	Aptidao: 230
+
+It: 9	Aptidao: 245
+
+It: 10	Aptidao: 254
+
+It: 11	Aptidao: 262
+
+It: 12	Aptidao: 240
+
+It: 13	Aptidao: 250
+
+It: 14	Aptidao: 247
+
+It: 15	Aptidao: 287
+
+It: 16	Aptidao: 263
+
+It: 17	Aptidao: 263
+
+It: 18	Aptidao: 277
+
+It: 19	Aptidao: 247
+
+It: 20	Aptidao: 261
+
+It: 21	Aptidao: 276
+
+It: 22	Aptidao: 249
+
+It: 23	Aptidao: 250
+
+It: 24	Aptidao: 250
+
+It: 25	Aptidao: 247
+
+It: 26	Aptidao: 254
+
+It: 27	Aptidao: 271
+
+It: 28	Aptidao: 252
+
+It: 29	Aptidao: 235
+
+It: 30	Aptidao: 248
+
+It: 31	Aptidao: 245
+
+It: 32	Aptidao: 264
+
+It: 33	Aptidao: 256
+
+It: 34	Aptidao: 274
+
+It: 35	Aptidao: 259
+
+It: 36	Aptidao: 249
+
+It: 37	Aptidao: 256
+
+It: 38	Aptidao: 244
+
+It: 39	Aptidao: 242
+
+It: 40	Aptidao: 261
+
+It: 41	Aptidao: 255
+
+It: 42	Aptidao: 260
+
+It: 43	Aptidao: 251
+
+It: 44	Aptidao: 253
+
+It: 45	Aptidao: 247
+
+It: 46	Aptidao: 272
+
+It: 47	Aptidao: 259
+
+It: 48	Aptidao: 262
+
+It: 49	Aptidao: 265
+
+Aptidao Media: 257

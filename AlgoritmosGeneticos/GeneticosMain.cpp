@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "GeneticoConfig.h";
-#include <iostream>
 #include <ctime>
+#include <fstream>
 
 using namespace std;
 
@@ -17,15 +17,18 @@ int main(int argc, char* argv[])
 	g->evolucao();
 
 	int aptidao_media = 0;
+	ofstream saida("dados_AG.txt", ios::app);
 
 	for (int i = 0; i < max_pop; i++)
 	{
-		cout << "It: " << i;
+		saida << "It: " << i;
 		//cout << "Nova Populacao: (" << p->get_individuo(i).get_x() << ", " << p->get_individuo(i).get_y() << ")" << endl;
-		cout << "\tAptidao: " << p->get_individuo(i).get_aptidao() << endl << endl;
+		saida << "\tAptidao: " << p->get_individuo(i).get_aptidao() << endl << endl;
 		aptidao_media += p->get_individuo(i).get_aptidao();
 	}
 
-	cout << "Aptidao Media: " << aptidao_media / max_pop << endl;
+	saida << "Aptidao Media: " << aptidao_media / max_pop << endl;
+
+	return 0;
 }
 
