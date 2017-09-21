@@ -2,15 +2,10 @@
 #include "Populacao.h"
 #include <ctime>
 
-populacao::populacao(): x_(nullptr), tamanho_(0), posicao_melhor_(0), elitismo_(false)
+populacao::populacao(int tamanho, bool gera_individuos, bool elitismo, int string_size)
 {
-}
-
-populacao::populacao(int tamanho_populacao, bool gera_individuos, bool elitismo, int string_size)
-{
-	tamanho_ = tamanho_populacao;
+	tamanho_ = tamanho;
 	x_ = new individuo[tamanho_];
-	elitismo_ = elitismo;
 
 	if (gera_individuos)
 	{
@@ -21,7 +16,7 @@ populacao::populacao(int tamanho_populacao, bool gera_individuos, bool elitismo,
 			individuo novo_individuo;
 			novo_individuo.gera_individuo(string_size);
 			armazena_individuo(i, novo_individuo);
-			if (novo_individuo.get_aptidao() > melhor_aptidao && elitismo_)
+			if (novo_individuo.get_aptidao() > melhor_aptidao && elitismo)
 			{
 				posicao_melhor_ = i;
 				melhor_aptidao = novo_individuo.get_aptidao();

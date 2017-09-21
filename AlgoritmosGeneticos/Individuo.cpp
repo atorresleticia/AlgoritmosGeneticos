@@ -36,17 +36,21 @@ void individuo::set_y(string y)
 	gene_y_ = y;
 }
 
+void individuo::set_cromossomo(string cromossomo)
+{
+	cromossomo_ = cromossomo;
+}
+
 /* 
  * A aptidão é definida pela contagem de 1's no cromossomo do individuo
  */
-void individuo::set_aptidao(string x, string y)
+void individuo::set_aptidao(string cromossomo)
 {
 	int count = 0;
-	string c = x.append(y);
 
-	for (int i = 0; i < c.length(); i++) 
+	for (int i = 0; i < cromossomo.length(); i++) 
 	{
-		if (c[i] == '1')
+		if (cromossomo[i] == '1')
 		{
 			count++;
 		}
@@ -55,19 +59,9 @@ void individuo::set_aptidao(string x, string y)
 	aptidao_ = count;
 }
 
-void individuo::set_aptidao(string x)
+void individuo::set_aptidao(int aptidao)
 {
-	int count = 0;
-
-	for (int i = 0; i < x.length(); i++)
-	{
-		if (x[i] == '1')
-		{
-			count++;
-		}
-	}
-
-	aptidao_ = count;
+	aptidao_ = aptidao;
 }
 
 /*
@@ -75,7 +69,7 @@ void individuo::set_aptidao(string x)
  */
 void individuo::gera_individuo(int tamanho)
 {
-	gene_x_ = gene_y_ = "";
+	gene_x_ = gene_y_ = cromossomo_ = "";
 	const int t = tamanho / 2;
 
 	for (auto i = 0; i < t; i++)
@@ -84,5 +78,6 @@ void individuo::gera_individuo(int tamanho)
 		gene_y_.append(to_string(rand() % 2));
 	}
 
-	set_aptidao(gene_x_, gene_y_);
+	cromossomo_ = gene_x_ + gene_y_;
+	set_aptidao(cromossomo_);
 }

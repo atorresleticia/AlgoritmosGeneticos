@@ -14,9 +14,9 @@ public:
 	~genetico_config();
 
 	int selecao_roleta() const;
-	void evolucao() const;
-	static void cruzamento(individuo x, individuo y);
-	static void mutacao(individuo j);
+	void evolucao(bool elitismo) const;
+	static void cruzamento(individuo& x, individuo& y);
+	static void mutacao(individuo& j);
 	void set_numero_geracoes(int numero_geracoes);
 	void set_populacao(populacao* pop);
 	int get_numero_geracoes() const { return numero_geracoes_; }

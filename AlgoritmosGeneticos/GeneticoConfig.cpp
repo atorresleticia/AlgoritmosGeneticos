@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "GeneticoConfig.h"
-#include <thread>
+#include <ctime>
 
 #define TX_MUTACAO 0.5
-#define TX_CRUZAMENTO 40
+#define TX_CRUZAMENTO 80
 
 genetico_config::genetico_config(int numero_geracoes, populacao* pop)
 {
@@ -38,39 +38,36 @@ int genetico_config::selecao_roleta() const
 	return i - 1;
 }
 
-void genetico_config::evolucao() const
+void genetico_config::evolucao(bool elitismo) const
 {		
 	const int nro_geracoes = numero_geracoes_;
 	const int tamanho_pop = pop_->get_tamanho_populacao();
-	const bool elitismo = pop_->elitismo();
-	int j;
 
 	srand(time(NULL));
 
+	populacao* nova_pop = new populacao(tamanho_pop, false, elitismo, pop_->get_individuo(0).get_cromossomo().length());
 	for(int i = 0; i < nro_geracoes; i++)
-	{
-		populacao* nova_pop = new populacao(tamanho_pop, false, true, 512);
-		
+	{	
+		int j = 0;
+		_memccpy(nova_pop, pop_, 0, sizeof(populacao));
 		if (elitismo)
 		{
 			nova_pop->armazena_individuo(0, pop_->get_individuo(pop_->get_melhor()));
 			j = 1;
-		} else
-		{
-			j = 0;
 		}
 
 		for(; j < tamanho_pop; j++)
 		{
-			const int index_1 = selecao_roleta();
+			int index_1;
 			int index_2;
 
 			do {
+				index_1 = selecao_roleta();
 				index_2 = selecao_roleta();
 			} while (index_1 == index_2);
-			
-			const individuo individuo_selecionado_1 = pop_->get_individuo(index_1);
-			const individuo individuo_selecionado_2 = pop_->get_individuo(index_2);
+		
+			individuo individuo_selecionado_1 = pop_->get_individuo(index_1);
+			individuo individuo_selecionado_2 = pop_->get_individuo(index_2);
 
 			if ((rand() % 100 + 1) < TX_CRUZAMENTO)
 			{
@@ -80,9 +77,6 @@ void genetico_config::evolucao() const
 			mutacao(individuo_selecionado_1);
 			mutacao(individuo_selecionado_2);
 
-			pop_->get_individuo(index_1).set_aptidao(individuo_selecionado_1.get_x(), individuo_selecionado_1.get_y());
-			pop_->get_individuo(index_2).set_aptidao(individuo_selecionado_2.get_x(), individuo_selecionado_2.get_y());
-
 			nova_pop->armazena_individuo(index_1, individuo_selecionado_1);
 			nova_pop->armazena_individuo(index_2, individuo_selecionado_2);
 		}
@@ -90,27 +84,27 @@ void genetico_config::evolucao() const
 	}
 }
 
-void genetico_config::cruzamento(individuo x, individuo y)
+void genetico_config::cruzamento(individuo &x, individuo &y)
 {
-	string cromossomo_1 = x.get_x().append(x.get_y());
-	string cromossomo_2 = y.get_x().append(y.get_y());
+	string cromossomo_1 = x.get_cromossomo();
+	string cromossomo_2 = y.get_cromossomo();
 
-	const int corte = rand() % cromossomo_1.length();
+	int corte = rand() % x.get_cromossomo().length();
 
 	for (int i = corte + 1; i < cromossomo_1.length(); i++)
 	{
-		const char aux = cromossomo_1[i];
+		char aux = cromossomo_1[i];
 		cromossomo_1[i] = cromossomo_2[i];
 		cromossomo_2[i] = aux;
 	}
 
-	x.set_individuo(cromossomo_1.substr(0, corte), cromossomo_1.substr(corte + 1, cromossomo_1.length() - corte - 1));
-	y.set_individuo(cromossomo_2.substr(0, corte), cromossomo_2.substr(corte + 1, cromossomo_2.length() - corte - 1));
+	x.set_cromossomo(cromossomo_1);
+	y.set_cromossomo(cromossomo_2);
 }
 
-void genetico_config::mutacao(individuo j)
+void genetico_config::mutacao(individuo &j)
 {
-	string cromossomo = j.get_x().append(j.get_y());
+	string cromossomo = j.get_cromossomo();
 	const int tamanho = cromossomo.length();
 
 	for (int i = 0; i < tamanho; i++)
@@ -128,7 +122,7 @@ void genetico_config::mutacao(individuo j)
 		}
 	}
 
-	j.set_individuo(cromossomo.substr(0, cromossomo.length() / 2), cromossomo.substr(cromossomo.length() / 2, cromossomo.length() / 2));
+	j.set_cromossomo(cromossomo);
 }
 
 void genetico_config::set_numero_geracoes(int numero_geracoes)

@@ -4,6 +4,8 @@
 #include <fstream>
 #include <chrono>
 
+#define ELITISMO true
+
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -14,13 +16,13 @@ int main(int argc, char* argv[])
 	const int max_gen = atoi(argv[2]);
 	const int max_crm = atoi(argv[3]);
 
-	chrono::high_resolution_clock::time_point init = chrono::high_resolution_clock::now();
+	const chrono::high_resolution_clock::time_point init = chrono::high_resolution_clock::now();
 
-	populacao* p = new populacao(max_pop, true, true, max_crm);
+	populacao* p = new populacao(max_pop, true, false, max_crm);
 	genetico_config* g = new genetico_config(max_gen, p);
-	g->evolucao();
+	g->evolucao(ELITISMO);
 
-	chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
+	const chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
 
 	ofstream saida("dados_AG.txt", ios::app);
 
