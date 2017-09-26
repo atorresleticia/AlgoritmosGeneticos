@@ -1,56 +1,77 @@
-#include "stdafx.h"
-#include "GeneticoConfig.h";
-#include <ctime>
-#include <fstream>
-#include <chrono>
+// AG.cpp : Defines the entry point for the console application.
+//
 
-#define ELITISMO true
+#include "stdafx.h"
+#include <ctime>
+#include <iostream>
+#include <chrono>
+#include <fstream>
+#include "GeneticoConfig.h"
 
 using namespace std;
 
-int main(int argc, char* argv[])
+int main()
 {
-	srand(time(NULL));
+	srand(time(nullptr));
+	int indice_qualidade;
+	int tamanho_populacao;
+	int tamanho_cromossomo;
+	float taxa_cruzamento;
+	float taxa_mutacao;
+	char elitismo;
+	int geracoes;
 
-	const int max_pop = atoi(argv[1]);
-	const int max_gen = atoi(argv[2]);
-	const int max_crm = atoi(argv[3]);
+	cout << "Numero de geracoes: ";
+	cin >> geracoes;
+	cout << "Tamanho da populacao: ";
+	cin >> tamanho_populacao;
+	cout << "Tamanho do cromossomo: ";
+	cin >> tamanho_cromossomo;
+	cout << "Taxa de cruzamento: ";
+	cin >> taxa_cruzamento;
+	cout << "Taxa de mutacao: ";
+	cin >> taxa_mutacao;
+	//cout << "Qualidade (0 - 100): ";
+	//cin >> indice_qualidade;
+	cout << "Elitismo? [s/n] ";
+	cin >> elitismo;
 
+	int g_count = 0;
+	elitismo = elitismo == 's' ? true : false;
 	const chrono::high_resolution_clock::time_point init = chrono::high_resolution_clock::now();
 
-	populacao* p = new populacao(max_pop, true, false, max_crm);
-	genetico_config* g = new genetico_config(max_gen, p);
-	g->evolucao(ELITISMO);
+	populacao* pop = new populacao(tamanho_populacao, tamanho_cromossomo, true);
+	genetico* gen = new genetico(taxa_mutacao / 100.0, taxa_cruzamento / 100.0, elitismo);
+
+	/*while(pop->get_melhor().get_aptidao() < tamanho_cromossomo*(static_cast<float>(indice_qualidade)/100.0))
+	{
+	pop = gen->evolucao(*pop);
+	g_count++;
+	}*/
+	while (g_count < geracoes)
+	{
+		pop = gen->evolucao(*pop);
+		g_count++;
+	}
 
 	const chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
 
-	ofstream saida("dados_AG.txt", ios::app);
-
-	chrono::duration<double> elaps = chrono::duration_cast<chrono::duration<double>>(end - init);
-
 	int aptidao_media = 0;
-	int aptidao_maxima = 0;
 
-	for (int i = 0; i < max_pop; i++)
+	for (int i = 0; i < tamanho_populacao; i++)
 	{
-		//saida << "It: " << i;
-		//saida << "Nova Populacao: (" << p->get_individuo(i).get_x() << ", " << p->get_individuo(i).get_y() << ")" << endl;
-		if (p->get_individuo(i).get_aptidao() > aptidao_maxima)
-		{
-			aptidao_maxima = p->get_individuo(i).get_aptidao();
-		}
-		//saida << "\tAptidao: " << p->get_individuo(i).get_aptidao() << endl << endl;
-		aptidao_media += p->get_individuo(i).get_aptidao();
+		aptidao_media += pop->get_individuo_em(i).get_aptidao();
 	}
 
-	saida << "Maior aptidao: " << aptidao_maxima << endl;
-	saida << "Aptidao Media: " << aptidao_media / max_pop << endl;
-	saida << "Qualidade da Solucao: " << (aptidao_media / max_pop) * 100.0 / max_crm << endl;
-	saida << "Espaco de busca: " << (max_pop * max_gen) / pow(2, max_crm) << endl;
-	saida << "Duracao: " << chrono::duration_cast<chrono::duration<double>>(end - init).count() << "s" << endl;
-	saida << endl;
+	aptidao_media /= tamanho_populacao;
 
-	saida.close();
+	cout << "Numero de geracoes: " << g_count << endl;
+	cout << "Maior aptidao: " << pop->get_melhor().get_aptidao() << endl;
+	cout << "Aptidao Media: " << aptidao_media << endl;
+	cout << "Qualidade da Solucao: " << pop->get_melhor().get_aptidao() * 100.0 / tamanho_cromossomo << "%" << endl;
+	cout << "Espaco de busca: " << tamanho_populacao * g_count / pow(2, tamanho_cromossomo) << endl;
+	cout << "Duracao: " << chrono::duration_cast<chrono::duration<double>>(end - init).count() << "s" << endl;
+	cout << endl;
 
 	return 0;
 }

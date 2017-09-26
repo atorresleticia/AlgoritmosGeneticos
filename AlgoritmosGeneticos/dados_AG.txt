@@ -193,3 +193,93 @@ Qualidade da Solucao: 50.1953
 Espaco de busca: 3.72917e-149
 Duracao: 34.9084s
 
+Maior aptidao: 289
+Aptidao Media: 257
+Qualidade da Solucao: 50.1953
+Espaco de busca: 3.72917e-149
+Duracao: 36.0602s
+
+Maior aptidao: 275
+Aptidao Media: 257
+Qualidade da Solucao: 50.1953
+Espaco de busca: 3.72917e-149
+Duracao: 33.3292s
+
+Maior aptidao: 286
+Aptidao Media: 258
+Qualidade da Solucao: 50.3906
+Espaco de busca: 3.72917e-149
+Duracao: 33.4137s
+
+Maior aptidao: 286
+Aptidao Media: 258
+Qualidade da Solucao: 50.3906
+Espaco de busca: 3.72917e-149
+Duracao: 32.8927s
+
+Maior aptidao: 285
+Aptidao Media: 258
+Qualidade da Solucao: 50.3906
+Espaco de busca: 3.72917e-149
+Duracao: 33.2136s
+
+Maior aptidao: 273
+Aptidao Media: 254
+Qualidade da Solucao: 49.6094
+Espaco de busca: 3.72917e-148
+Duracao: 334.572s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 0.0488281
+Duracao: 0.0332034s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 9.76563
+Duracao: 0.0362869s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 0.0976563
+Duracao: 0.280469s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 0.0976563
+Duracao: 0.575016s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 0.0976563
+Duracao: 0.342883s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 0.0976563
+Duracao: 0.427003s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 0.0976563
+Duracao: 0.314603s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 9.76563
+Duracao: 0.0725749s
+
+Maior aptidao: 0
+Aptidao Media: 0
+Qualidade da Solucao: 0
+Espaco de busca: 9.76563
+Duracao: 0.0424532s
+

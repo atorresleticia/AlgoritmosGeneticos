@@ -1,35 +1,42 @@
 #include "stdafx.h"
-#include "Populacao.h"
-#include <ctime>
+#include "populacao.h"
 
-populacao::populacao(int tamanho, bool gera_individuos, bool elitismo, int string_size)
+populacao::populacao(int tamanho_populacao, int tamanho_cromossomo, bool gera_individuos)
 {
-	tamanho_ = tamanho;
-	x_ = new individuo[tamanho_];
+	tamanho_populacao_ = tamanho_populacao;
+	individuos_ = new individuo[tamanho_populacao];
 
 	if (gera_individuos)
 	{
-		int melhor_aptidao = 0;
-
-		for (int i = 0; i < tamanho_; i++)
+		for (int i = 0; i < tamanho_populacao_; i++)
 		{
-			individuo novo_individuo;
-			novo_individuo.gera_individuo(string_size);
-			armazena_individuo(i, novo_individuo);
-			if (novo_individuo.get_aptidao() > melhor_aptidao && elitismo)
-			{
-				posicao_melhor_ = i;
-				melhor_aptidao = novo_individuo.get_aptidao();
-			}
+			individuo novo;
+			novo.gera_individuo(tamanho_cromossomo);
+			armazena_individuo(i, novo);
 		}
 	}
 }
 
-populacao::~populacao()
+individuo populacao::get_melhor()
 {
+	individuo melhor = individuos_[0];
+	for (int i = 0; i < tamanho_populacao_; i++)
+	{
+		if (melhor.get_aptidao() <= get_individuo_em(i).get_aptidao())
+		{
+			melhor = get_individuo_em(i);
+		}
+	}
+	return melhor;
+}
+
+individuo populacao::get_melhor(individuo& a, individuo& b)
+{
+	individuo melhor = a.get_aptidao() > b.get_aptidao() ? a : b;
+	return melhor;
 }
 
 void populacao::armazena_individuo(int i, individuo x_i) const
 {
-	x_[i] = x_i;
+	individuos_[i] = x_i;
 }

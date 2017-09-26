@@ -1,38 +1,41 @@
 #ifndef POPULACAO_H
 #define POPULACAO_H
+#pragma once
 
 #include "Individuo.h"
 
 class populacao
 {
-private:
-	individuo* x_;
-	int tamanho_;
-	int posicao_melhor_;
-
 public:
-	/*
-	 * Construtor quando se quer definir uma população
-	 * gera_individuos = true, quando se quer gerar um individuo
-	 * gera_individuos = false, quando é pra gerar um individuo vazio
-	 */
-	populacao(int tamanho, bool gera_individuos, bool elitismo, int string_size);
+
+	populacao(int tamanho_populacao, int tamanho_cromossomo, bool gera_individuos);
+	populacao(int tamanho_populacao);
 	populacao() = default;
-	~populacao();
 
-
-	populacao(individuo* x, int tamanho, int posicao_melhor)
-		: x_(x),
-		  tamanho_(tamanho),
-		  posicao_melhor_(posicao_melhor)
+	individuo* get_individuos() const
 	{
+		return individuos_;
 	}
 
-	void armazena_individuo(int i, individuo x_i) const;
-	int get_tamanho_populacao() const { return tamanho_; };
-	individuo get_individuo(int i) const { return x_[i]; }
-	int get_melhor() const { return posicao_melhor_; };
+	individuo get_individuo_em(int i) const
+	{
+		return individuos_[i];
+	}
 
+	int get_tamanho_populacao() const
+	{
+		return tamanho_populacao_;
+	}
+
+	individuo get_melhor();
+	individuo get_melhor(individuo& a, individuo& b);
+	void armazena_individuo(int i, individuo x_i) const;
+
+private:
+	individuo* individuos_;
+	individuo melhor_;
+	int tamanho_populacao_;
 };
+
 
 #endif
