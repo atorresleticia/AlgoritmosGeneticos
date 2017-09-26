@@ -1,25 +1,31 @@
 #ifndef GENETICOCONFIG_H
 #define GENETICOCONFIG_H
-
+#pragma once
 #include "Populacao.h"
 
-class genetico_config
+class genetico
 {
-private:
-	int numero_geracoes_;
-	populacao* pop_;
-
 public:
-	genetico_config(int numero_geracoes, populacao* pop);
-	~genetico_config();
 
-	int selecao_roleta() const;
-	void evolucao(bool elitismo) const;
-	static void cruzamento(individuo& x, individuo& y);
-	static void mutacao(individuo& j);
-	void set_numero_geracoes(int numero_geracoes);
-	void set_populacao(populacao* pop);
-	int get_numero_geracoes() const { return numero_geracoes_; }
+	genetico(float tx_mutacao, float tx_cruzamento, bool elitismo)
+		: tx_mutacao_(tx_mutacao),
+		tx_cruzamento_(tx_cruzamento),
+		elitismo_(elitismo)
+	{
+	}
+
+	genetico() = default;
+	~genetico() = default;
+
+	int roleta(populacao& p) const;
+	individuo cruzamento(individuo& a, individuo& b);
+	void mutacao(individuo& a);
+	populacao* evolucao(populacao p);
+
+private:
+	float tx_mutacao_;
+	float tx_cruzamento_;
+	bool elitismo_;
 };
 
 #endif

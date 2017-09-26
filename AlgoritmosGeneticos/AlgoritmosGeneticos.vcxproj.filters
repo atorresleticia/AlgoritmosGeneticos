@@ -24,13 +24,13 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneticoConfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Populacao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Individuo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneticoConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
