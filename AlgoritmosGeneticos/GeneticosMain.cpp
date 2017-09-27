@@ -12,7 +12,7 @@ using namespace std;
 
 int main()
 {
-	srand(time(nullptr));
+	srand(time(NULL));
 	int indice_qualidade;
 	int tamanho_populacao;
 	int tamanho_cromossomo;
@@ -40,9 +40,19 @@ int main()
 	elitismo = elitismo == 's' ? true : false;
 	const chrono::high_resolution_clock::time_point init = chrono::high_resolution_clock::now();
 
-	populacao* p = new populacao(max_pop, true, false, max_crm);
-	genetico_config* g = new genetico_config(max_gen, p);
-	g->evolucao(ELITISMO);
+	populacao* pop = new populacao(tamanho_populacao, tamanho_cromossomo, true);
+	genetico* gen = new genetico(taxa_mutacao / 100.0, taxa_cruzamento / 100.0, elitismo);
+
+	/*while(pop->get_melhor().get_aptidao() < tamanho_cromossomo*(static_cast<float>(indice_qualidade)/100.0))
+	{
+	pop = gen->evolucao(*pop);
+	g_count++;
+	}*/
+	while (g_count < geracoes)
+	{
+		pop = gen->evolucao(*pop);
+		g_count++;
+	}
 
 	const chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
 
@@ -54,6 +64,8 @@ int main()
 	}
 
 	aptidao_media /= tamanho_populacao;
+
+	//ofstream info("INFO.txt");
 
 	cout << "Numero de geracoes: " << g_count << endl;
 	cout << "Maior aptidao: " << pop->get_melhor().get_aptidao() << endl;

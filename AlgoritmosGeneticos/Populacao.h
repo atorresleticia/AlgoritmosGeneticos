@@ -29,7 +29,7 @@ public:
 
 	individuo get_melhor();
 	individuo get_melhor(individuo& a, individuo& b);
-	void armazena_individuo(int i, individuo x_i) const;
+	void armazena_individuo(int i, individuo x_i);
 
 private:
 	individuo* individuos_;

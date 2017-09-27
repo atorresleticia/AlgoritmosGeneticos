@@ -74,7 +74,7 @@ void genetico::mutacao(individuo& a)
 	a.set_cromossomo(c);
 }
 
-populacao* genetico::evolucao(populacao p)
+populacao* genetico::evolucao(populacao& p)
 {
 	populacao* nova_p = new populacao(p.get_tamanho_populacao(), p.get_individuo_em(0).get_tamanho_individuo(), false);
 	int j = 0;
@@ -82,6 +82,7 @@ populacao* genetico::evolucao(populacao p)
 	if (elitismo_)
 	{
 		nova_p->armazena_individuo(0, p.get_melhor());
+		auto aux = nova_p->get_individuo_em(0);
 		j = 1;
 	}
 
@@ -106,13 +107,14 @@ populacao* genetico::evolucao(populacao p)
 		{
 			filho = cruzamento(individuo_selecionado_1, individuo_selecionado_2);
 		}
-
 		nova_p->armazena_individuo(i, filho);
+		auto aux = nova_p->get_individuo_em(i);
 	}
 
 	for (int i = j; i < nova_p->get_tamanho_populacao(); i++)
 	{
-		mutacao(nova_p->get_individuo_em(i));
+		auto aux = nova_p->get_individuo_em(i);
+		mutacao(aux);
 	}
 
 	return nova_p;
