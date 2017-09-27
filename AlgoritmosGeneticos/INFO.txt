@@ -1,0 +1,16 @@
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 50
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 12331
+Maior aptidao encontrada: 512
+Aptidao media: 497
+Qualidade da solucao: 100%
+Espaco de busca: 4.59844e-149
+Duracao: 20.6622s
+
+-------------------------------
