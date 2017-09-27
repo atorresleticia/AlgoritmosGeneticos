@@ -41,6 +41,7 @@ int main()
 	const chrono::high_resolution_clock::time_point init = chrono::high_resolution_clock::now();
 
 	populacao* pop = new populacao(tamanho_populacao, tamanho_cromossomo, true);
+	populacao* nova_p = new populacao(tamanho_populacao, tamanho_cromossomo, true);
 	genetico* gen = new genetico(taxa_mutacao / 100.0, taxa_cruzamento / 100.0, elitismo);
 
 	/*while(pop->get_melhor().get_aptidao() < tamanho_cromossomo*(static_cast<float>(indice_qualidade)/100.0))
@@ -48,9 +49,10 @@ int main()
 	pop = gen->evolucao(*pop);
 	g_count++;
 	}*/
+
 	while (g_count < geracoes)
 	{
-		pop = gen->evolucao(*pop);
+		gen->evolucao(*pop, *nova_p);
 		g_count++;
 	}
 
@@ -64,9 +66,7 @@ int main()
 	}
 
 	aptidao_media /= tamanho_populacao;
-
-	//ofstream info("INFO.txt");
-
+	
 	cout << "Numero de geracoes: " << g_count << endl;
 	cout << "Maior aptidao: " << pop->get_melhor().get_aptidao() << endl;
 	cout << "Aptidao Media: " << aptidao_media << endl;

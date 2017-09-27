@@ -32,10 +32,15 @@ public:
 		return aptidao_;
 	}
 
+	void set_tamanho_individuo(int tamanho)
+	{
+		tamanho_individuo_ = tamanho;
+	}
+
 private:
 	std::string cromossomo_;
 	int tamanho_individuo_;
-	int aptidao_ = 0;
+	int aptidao_;
 };
 
 

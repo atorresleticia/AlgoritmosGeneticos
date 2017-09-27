@@ -20,7 +20,7 @@ public:
 	int roleta(populacao& p) const;
 	individuo cruzamento(individuo& a, individuo& b);
 	void mutacao(individuo& a);
-	populacao* evolucao(populacao& p);
+	void evolucao(populacao& p, populacao& nova_p);
 
 private:
 	float tx_mutacao_;

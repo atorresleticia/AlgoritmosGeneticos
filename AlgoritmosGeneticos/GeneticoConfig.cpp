@@ -34,8 +34,7 @@ individuo genetico::cruzamento(individuo& a, individuo& b)
 	std::string c1 = a.get_cromossomo();
 	std::string c2 = b.get_cromossomo();
 
-	const int p_corte = rand() % a.get_tamanho_individuo();
-
+	const int p_corte = rand() % (c1.length() - 1);
 	for (int i = p_corte + 1; i < a.get_tamanho_individuo(); i++)
 	{
 		const char aux = c1[i];
@@ -57,14 +56,14 @@ void genetico::mutacao(individuo& a)
 	for (int i = 0; i < tamanho_individuo; i++)
 	{
 		const float m = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-		//std::cout << m << " ";
+		//std::cout <<"tx m: " << m << " ";
 		if (m < tx_mutacao_)
 		{
 			if (c[i] == '0')
 			{
 				c[i] = '1';
 			}
-			else if (c[i] == '1')
+			else
 			{
 				c[i] = '0';
 			}
@@ -74,15 +73,13 @@ void genetico::mutacao(individuo& a)
 	a.set_cromossomo(c);
 }
 
-populacao* genetico::evolucao(populacao& p)
+void genetico::evolucao(populacao& p, populacao& nova_p)
 {
-	populacao* nova_p = new populacao(p.get_tamanho_populacao(), p.get_individuo_em(0).get_tamanho_individuo(), false);
 	int j = 0;
 
 	if (elitismo_)
 	{
-		nova_p->armazena_individuo(0, p.get_melhor());
-		auto aux = nova_p->get_individuo_em(0);
+		nova_p.armazena_individuo(0, p.get_melhor());
 		j = 1;
 	}
 
@@ -99,7 +96,7 @@ populacao* genetico::evolucao(populacao& p)
 
 		individuo_selecionado_1 = p.get_individuo_em(index_1);
 		individuo_selecionado_2 = p.get_individuo_em(index_2);
-		filho = individuo_selecionado_1.get_melhor(individuo_selecionado_2);
+		//filho = individuo_selecionado_1.get_melhor(individuo_selecionado_2);
 
 		const float c = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		//std::cout << c << std::endl;
@@ -107,15 +104,14 @@ populacao* genetico::evolucao(populacao& p)
 		{
 			filho = cruzamento(individuo_selecionado_1, individuo_selecionado_2);
 		}
-		nova_p->armazena_individuo(i, filho);
-		auto aux = nova_p->get_individuo_em(i);
-	}
+		
+		mutacao(filho);
 
-	for (int i = j; i < nova_p->get_tamanho_populacao(); i++)
+		nova_p.armazena_individuo(i, filho);
+	}
+	for(int i = 0; i < p.get_tamanho_populacao(); i++)
 	{
-		auto aux = nova_p->get_individuo_em(i);
-		mutacao(aux);
+		p.armazena_individuo(i, nova_p.get_individuo_em(i));
+		p.get_individuo_em(i).set_tamanho_individuo(nova_p.get_individuo_em(i).get_tamanho_individuo());
 	}
-
-	return nova_p;
 }

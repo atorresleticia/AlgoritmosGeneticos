@@ -10,9 +10,9 @@ populacao::populacao(int tamanho_populacao, int tamanho_cromossomo, bool gera_in
 	{
 		for (int i = 0; i < tamanho_populacao_; i++)
 		{
-			individuo* novo = new individuo();
-			novo->gera_individuo(tamanho_cromossomo);
-			armazena_individuo(i, *novo);
+			individuo novo;
+			novo.gera_individuo(tamanho_cromossomo);
+			armazena_individuo(i, novo);
 		}
 	}
 }
@@ -38,5 +38,6 @@ individuo populacao::get_melhor(individuo& a, individuo& b)
 
 void populacao::armazena_individuo(int i, individuo x_i)
 {
-	this->individuos_[i] = x_i;
+	individuos_[i].set_tamanho_individuo(x_i.get_tamanho_individuo());
+	individuos_[i].set_cromossomo(x_i.get_cromossomo());
 }
