@@ -14,11 +14,11 @@ int main(int argc, char* argv[])
 {
 	srand(time(NULL));
 
-	int tamanho_cromossomo = atoi(argv[1]);
-	int tamanho_populacao = atoi(argv[2]);
-	float taxa_cruzamento = atof(argv[3]);
-	float taxa_mutacao = atof(argv[4]);
-	bool elitismo = atoi(argv[5]) == 1 ? true : false;
+	const int tamanho_cromossomo = atoi(argv[1]);
+	const int tamanho_populacao = atoi(argv[2]);
+	const float taxa_cruzamento = atof(argv[3]);
+	const float taxa_mutacao = atof(argv[4]);
+	const bool elitismo = atoi(argv[5]) == 1 ? true : false;
 
 	cout << "PARAMETROS: " << endl;
 	cout << "Tamanho cromossomo: " << tamanho_cromossomo << endl;
@@ -42,8 +42,8 @@ int main(int argc, char* argv[])
 	}*/
 	
 
-	int g_count = 0;
-	//elitismo = elitismo == 's' ? true : false;
+	unsigned long g_count = 1;
+	unsigned long count = 0;
 	const chrono::high_resolution_clock::time_point init = chrono::high_resolution_clock::now();
 
 	populacao* pop = new populacao(tamanho_populacao, tamanho_cromossomo, true);
@@ -54,13 +54,10 @@ int main(int argc, char* argv[])
 	{
 		gen->evolucao(*pop, *nova_p);
 		g_count++;
+		if (g_count % 1000 == 0){
+			cout << pop->get_melhor().get_aptidao() << " " << count++ << "\b\b\b\b\b\b\b\b\b";
+		}
 	}
-
-	/*while (g_count < geracoes)
-	{
-		gen->evolucao(*pop, *nova_p);
-		g_count++;
-	}*/
 
 	const chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
 
@@ -75,7 +72,7 @@ int main(int argc, char* argv[])
 	
 	ofstream info("INFO.txt", ios::app);
 
-	info << "RESULTADOS: " << endl;
+	cout << "RESULTADOS: " << endl;
 	cout << "Numero de geracoes: " << g_count << endl;
 	cout << "Maior aptidao: " << pop->get_melhor().get_aptidao() << endl;
 	cout << "Aptidao Media: " << aptidao_media << endl;
