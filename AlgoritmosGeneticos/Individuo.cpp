@@ -6,7 +6,7 @@ void individuo::gera_individuo(int tamanho_individuo)
 	tamanho_individuo_ = tamanho_individuo;
 	cromossomo_ = "";
 
-	for (int i = 0; i < tamanho_individuo_; i++)
+	for (auto i = 0; i < tamanho_individuo_; i++)
 	{
 		cromossomo_.append(std::to_string(rand() % 2));
 	}
@@ -17,7 +17,7 @@ void individuo::set_aptidao(std::string cromossomo)
 {
 	aptidao_ = 0;
 
-	for (int i = 0; i < tamanho_individuo_; i++)
+	for (auto i = 0; i < tamanho_individuo_; i++)
 	{
 		if (cromossomo[i] == '1') { aptidao_++; }
 	}

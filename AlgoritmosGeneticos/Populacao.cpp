@@ -17,7 +17,7 @@ populacao::populacao(int tamanho_populacao, int tamanho_cromossomo, bool gera_in
 	}
 }
 
-individuo populacao::get_melhor()
+individuo populacao::get_melhor() const
 {
 	individuo melhor = individuos_[0];
 	for (int i = 0; i < tamanho_populacao_; i++)
@@ -36,7 +36,7 @@ individuo populacao::get_melhor(individuo& a, individuo& b)
 	return melhor;
 }
 
-void populacao::armazena_individuo(int i, individuo x_i)
+void populacao::armazena_individuo(int i, individuo x_i) const
 {
 	individuos_[i].set_tamanho_individuo(x_i.get_tamanho_individuo());
 	individuos_[i].set_cromossomo(x_i.get_cromossomo());

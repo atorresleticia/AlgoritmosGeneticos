@@ -9,7 +9,6 @@ public:
 
 	~individuo() = default;
 	individuo() = default;
-	explicit individuo(int tamanho_individuo);
 	void gera_individuo(int tamanho_individuo);
 	void set_aptidao(std::string cromossomo);
 	void set_aptidao(int aptidao);

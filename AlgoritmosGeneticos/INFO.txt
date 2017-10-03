@@ -111,3 +111,51 @@ Espaco de busca: 5.67095e-149
 Duracao: 24.6168s
 -------------------------------
 
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 40
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 1748
+Maior aptidao encontrada: 512
+Aptidao media: 499
+Qualidade da solucao: 100%
+Espaco de busca: 2.60744e-149
+Duracao: 17.6658s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 50
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 14845
+Maior aptidao encontrada: 512
+Aptidao media: 499
+Qualidade da solucao: 100%
+Espaco de busca: 5.53595e-149
+Duracao: 22.1044s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 50
+Taxa cruzamento: 40
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 68924
+Maior aptidao encontrada: 512
+Aptidao media: 475
+Qualidade da solucao: 100%
+Espaco de busca: 2.57029e-148
+Duracao: 97.86s
+-------------------------------
+

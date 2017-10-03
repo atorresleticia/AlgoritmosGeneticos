@@ -9,7 +9,6 @@ class populacao
 public:
 
 	populacao(int tamanho_populacao, int tamanho_cromossomo, bool gera_individuos);
-	populacao(int tamanho_populacao);
 	populacao() = default;
 
 	individuo* get_individuos() const
@@ -27,9 +26,9 @@ public:
 		return tamanho_populacao_;
 	}
 
-	individuo get_melhor();
-	individuo get_melhor(individuo& a, individuo& b);
-	void armazena_individuo(int i, individuo x_i);
+	individuo get_melhor() const;
+	static individuo get_melhor(individuo& a, individuo& b);
+	void armazena_individuo(int i, individuo x_i) const;
 
 private:
 	individuo* individuos_;

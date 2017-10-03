@@ -6,19 +6,19 @@ individuo individuo_selecionado_1;
 individuo individuo_selecionado_2;
 individuo filho;
 
-int genetico::roleta(populacao &pop) const
+int genetico::roleta(populacao &pop)
 {
-	int s = 0;
-	const int tamanho_populacao = pop.get_tamanho_populacao();
+	auto s = 0;
+	const auto tamanho_populacao = pop.get_tamanho_populacao();
 
-	for (int i = 0; i < tamanho_populacao; i++)
+	for (auto i = 0; i < tamanho_populacao; i++)
 	{
 		s += pop.get_individuo_em(i).get_aptidao();
 	}
 
-	const int p = rand() % s + 1;
-	int t_parcial = 0;
-	int i = 0;
+	const auto p = rand() % s + 1;
+	auto t_parcial = 0;
+	auto i = 0;
 
 	while (i < tamanho_populacao && t_parcial < p)
 	{
@@ -48,12 +48,12 @@ individuo genetico::cruzamento(individuo& a, individuo& b)
 	return a.get_melhor(b);
 }
 
-void genetico::mutacao(individuo& a)
+void genetico::mutacao(individuo& a) const
 {
 	std::string c = a.get_cromossomo();
-	const int tamanho_individuo = a.get_tamanho_individuo();
+	const auto tamanho_individuo = a.get_tamanho_individuo();
 
-	for (int i = 0; i < tamanho_individuo; i++)
+	for (auto i = 0; i < tamanho_individuo; i++)
 	{
 		const float m = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		//std::cout <<"tx m: " << m << " ";
@@ -75,7 +75,7 @@ void genetico::mutacao(individuo& a)
 
 void genetico::evolucao(populacao& p, populacao& nova_p)
 {
-	int j = 0;
+	auto j = 0;
 
 	if (elitismo_)
 	{
@@ -83,7 +83,7 @@ void genetico::evolucao(populacao& p, populacao& nova_p)
 		j = 1;
 	}
 
-	for (int i = j; i < p.get_tamanho_populacao(); i++)
+	for (auto i = j; i < p.get_tamanho_populacao(); i++)
 	{
 		int index_1;
 		int index_2;
@@ -99,7 +99,6 @@ void genetico::evolucao(populacao& p, populacao& nova_p)
 		//filho = individuo_selecionado_1.get_melhor(individuo_selecionado_2);
 
 		const float c = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-		//std::cout << c << std::endl;
 		if (c < tx_cruzamento_)
 		{
 			filho = cruzamento(individuo_selecionado_1, individuo_selecionado_2);
@@ -109,7 +108,7 @@ void genetico::evolucao(populacao& p, populacao& nova_p)
 
 		nova_p.armazena_individuo(i, filho);
 	}
-	for(int i = 0; i < p.get_tamanho_populacao(); i++)
+	for(auto i = 0; i < p.get_tamanho_populacao(); i++)
 	{
 		p.armazena_individuo(i, nova_p.get_individuo_em(i));
 		p.get_individuo_em(i).set_tamanho_individuo(nova_p.get_individuo_em(i).get_tamanho_individuo());

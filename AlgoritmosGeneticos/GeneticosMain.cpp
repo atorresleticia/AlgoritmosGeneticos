@@ -12,13 +12,13 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 
-	const int tamanho_cromossomo = atoi(argv[1]);
-	const int tamanho_populacao = atoi(argv[2]);
+	const auto tamanho_cromossomo = atoi(argv[1]);
+	const auto tamanho_populacao = atoi(argv[2]);
 	const float taxa_cruzamento = atof(argv[3]);
 	const float taxa_mutacao = atof(argv[4]);
-	const bool elitismo = atoi(argv[5]) == 1 ? true : false;
+	const auto elitismo = atoi(argv[5]) == 1 ? true : false;
 
 	cout << "PARAMETROS: " << endl;
 	cout << "Tamanho cromossomo: " << tamanho_cromossomo << endl;
@@ -27,24 +27,8 @@ int main(int argc, char* argv[])
 	cout << "Taxa mutacao: " << taxa_mutacao << endl;
 	cout << (elitismo ? "Com elitismo" : "Sem elitismo") << endl;
 
-	/*if (argc != 6)
-	{
-		cout << "Tamanho do cromossomo: ";
-		cin >> tamanho_cromossomo;
-		cout << "Tamanho da populacao: ";
-		cin >> tamanho_populacao;
-		cout << "Taxa de cruzamento: ";
-		cin >> taxa_cruzamento;
-		cout << "Taxa de mutacao: ";
-		cin >> taxa_mutacao;
-		cout << "Elitismo? [s/n] ";
-		cin >> elitismo;
-	}*/
-	
-
 	unsigned long g_count = 1;
-	unsigned long count = 0;
-	const chrono::high_resolution_clock::time_point init = chrono::high_resolution_clock::now();
+	const auto init = chrono::high_resolution_clock::now();
 
 	populacao* pop = new populacao(tamanho_populacao, tamanho_cromossomo, true);
 	populacao* nova_p = new populacao(tamanho_populacao, tamanho_cromossomo, true);
@@ -54,16 +38,13 @@ int main(int argc, char* argv[])
 	{
 		gen->evolucao(*pop, *nova_p);
 		g_count++;
-		if (g_count % 1000 == 0){
-			cout << pop->get_melhor().get_aptidao() << " " << count++ << "\b\b\b\b\b\b\b\b\b";
-		}
 	}
 
-	const chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
+	const auto end = chrono::high_resolution_clock::now();
 
-	int aptidao_media = 0;
+	auto aptidao_media = 0;
 
-	for (int i = 0; i < tamanho_populacao; i++)
+	for (auto i = 0; i < tamanho_populacao; i++)
 	{
 		aptidao_media += pop->get_individuo_em(i).get_aptidao();
 	}
