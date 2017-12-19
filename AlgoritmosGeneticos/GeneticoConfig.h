@@ -17,7 +17,7 @@ public:
 	genetico() = default;
 	~genetico() = default;
 
-	static int roleta(populacao& p);
+	individuo torneio(populacao& p);
 	static individuo cruzamento(individuo& a, individuo& b);
 	void mutacao(individuo& a) const;
 	void evolucao(populacao& p, populacao& nova_p);

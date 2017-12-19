@@ -6,27 +6,19 @@ individuo individuo_selecionado_1;
 individuo individuo_selecionado_2;
 individuo filho;
 
-int genetico::roleta(populacao &pop)
+individuo s1;
+individuo s2;
+individuo filho_s;
+
+individuo genetico::torneio(populacao& p)
 {
-	auto s = 0;
-	const auto tamanho_populacao = pop.get_tamanho_populacao();
-
-	for (auto i = 0; i < tamanho_populacao; i++)
+	const int tamanhoTorneio = 4;
+	populacao* aux = new populacao(tamanhoTorneio, p.get_individuo_em(0).get_tamanho_individuo(), false);
+	for (int i = 0; i < tamanhoTorneio; i++)
 	{
-		s += pop.get_individuo_em(i).get_aptidao();
+		aux->armazena_individuo(i, p.get_individuo_em(rand() % p.get_tamanho_populacao()));
 	}
-
-	const auto p = rand() % s + 1;
-	auto t_parcial = 0;
-	auto i = 0;
-
-	while (i < tamanho_populacao && t_parcial < p)
-	{
-		t_parcial += pop.get_individuo_em(i).get_aptidao();
-		i++;
-	}
-
-	return i - 1;
+	return aux->get_melhor();
 }
 
 individuo genetico::cruzamento(individuo& a, individuo& b)
@@ -85,25 +77,16 @@ void genetico::evolucao(populacao& p, populacao& nova_p)
 
 	for (auto i = j; i < p.get_tamanho_populacao(); i++)
 	{
-		int index_1;
-		int index_2;
 
-		do
-		{
-			index_1 = roleta(p);
-			index_2 = roleta(p);
-		} while (index_1 == index_2);
+		individuo_selecionado_1 = torneio(p);
+		individuo_selecionado_2 = torneio(p);
 
-		individuo_selecionado_1 = p.get_individuo_em(index_1);
-		individuo_selecionado_2 = p.get_individuo_em(index_2);
-		//filho = individuo_selecionado_1.get_melhor(individuo_selecionado_2);
-
-		const float c = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		float c = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		if (c < tx_cruzamento_)
 		{
 			filho = cruzamento(individuo_selecionado_1, individuo_selecionado_2);
 		}
-		
+
 		mutacao(filho);
 
 		nova_p.armazena_individuo(i, filho);

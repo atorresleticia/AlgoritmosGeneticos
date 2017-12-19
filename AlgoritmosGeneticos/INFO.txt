@@ -159,3 +159,179 @@ Espaco de busca: 2.57029e-148
 Duracao: 97.86s
 -------------------------------
 
+PARAMETROS: 
+Tamanho cromossomo: 10
+Tamanho populacao: 50
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 2
+Maior aptidao encontrada: 10
+Aptidao media: 6
+Qualidade da solucao: 100%
+Espaco de busca: 0.0976563
+Duracao: 0.0299725s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 500
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 333
+Maior aptidao encontrada: 500
+Aptidao media: 492
+Qualidade da solucao: 100%
+Espaco de busca: 2.03459e-146
+Duracao: 6.58766s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 500
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 480
+Maior aptidao encontrada: 500
+Aptidao media: 492
+Qualidade da solucao: 100%
+Espaco de busca: 2.93274e-146
+Duracao: 9.57291s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 500
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 426
+Maior aptidao encontrada: 500
+Aptidao media: 493
+Qualidade da solucao: 100%
+Espaco de busca: 2.60281e-146
+Duracao: 8.62464s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 237
+Maior aptidao encontrada: 512
+Aptidao media: 503
+Qualidade da solucao: 100%
+Espaco de busca: 3.53525e-150
+Duracao: 4.8582s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 293
+Maior aptidao encontrada: 512
+Aptidao media: 504
+Qualidade da solucao: 100%
+Espaco de busca: 4.37059e-150
+Duracao: 6.11992s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 391
+Maior aptidao encontrada: 512
+Aptidao media: 505
+Qualidade da solucao: 100%
+Espaco de busca: 5.83242e-150
+Duracao: 7.92686s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 9786
+Maior aptidao encontrada: 512
+Aptidao media: 492
+Qualidade da solucao: 100%
+Espaco de busca: 1.45975e-148
+Duracao: 99.7119s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 448
+Maior aptidao encontrada: 512
+Aptidao media: 504
+Qualidade da solucao: 100%
+Espaco de busca: 6.68267e-150
+Duracao: 9.36423s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 3273
+Maior aptidao encontrada: 512
+Aptidao media: 497
+Qualidade da solucao: 100%
+Espaco de busca: 4.88223e-149
+Duracao: 2088.87s
+-------------------------------
+
+PARAMETROS: 
+Tamanho cromossomo: 512
+Tamanho populacao: 200
+Taxa cruzamento: 80
+Taxa mutacao: 0.5
+Com elitismo
+
+RESULTADOS: 
+Numero de geracoes: 114
+Maior aptidao encontrada: 512
+Aptidao media: 506
+Qualidade da solucao: 100%
+Espaco de busca: 1.7005e-150
+Duracao: 0.843402s
+-------------------------------
+

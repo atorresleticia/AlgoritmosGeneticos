@@ -38,6 +38,10 @@ int main(int argc, char* argv[])
 	{
 		gen->evolucao(*pop, *nova_p);
 		g_count++;
+		if (g_count % 10 == 0)
+		{
+			cout << pop->get_melhor().get_aptidao() * 100.0 / tamanho_cromossomo << "%" << "\b\b\b\b\b\b\b\b\b";
+		}
 	}
 
 	const auto end = chrono::high_resolution_clock::now();
